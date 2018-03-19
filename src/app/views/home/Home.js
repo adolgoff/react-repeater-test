@@ -43,7 +43,7 @@ class Home extends PureComponent {
 
   render() {
     const { animated, viewEnters } = this.state;
-    const names = Array(150).fill('a');
+    const names = Array(150).fill('').map(a => Math.round(Math.random() * 1000));
 
     return(
       <section

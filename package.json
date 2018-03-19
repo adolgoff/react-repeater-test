@@ -15,7 +15,7 @@
     "test": "cross-env NODE_ENV=test nyc mocha test/.setup.js test/**/*.spec.js --recursive",
     "dev": "cross-env NODE_ENV=dev webpack --config webpack.dev.config.js",
     "prod": "cross-env NODE_ENV=production webpack -p --config webpack.production.config.js",
-    "start": "cross-env NODE_ENV=dev node ./server.hot.reload.js",
+    "start": "cross-env NODE_ENV=production node ./server.hot.reload.js",
     "serve-dev": "npm run dev && nodemon ./src/server/index.js",
     "serve-prod": "npm run prod && node ./src/server/index.js"
   },
