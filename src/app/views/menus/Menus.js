@@ -11,9 +11,11 @@ import {
   CardTitle,
   CardText
 }                         from 'material-ui/Card';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 import FlatButton         from 'material-ui/FlatButton';
 
-class About extends PureComponent {
+class Menus extends PureComponent {
   static propTypes = {
     // react-router 4:
     match:    PropTypes.object.isRequired,
@@ -25,7 +27,8 @@ class About extends PureComponent {
 
   state = {
     animated: true,
-    viewEnters: false
+    viewEnters: false,
+    value: 1,
   };
 
   componentDidMount() {
@@ -36,12 +39,24 @@ class About extends PureComponent {
     clearTimeout(this.enterAnimationTimer);
   }
 
+  handleChange = (event, index, value) => this.setState({value});
+
   render() {
     const { animated, viewEnters } = this.state;
-
+    const items = Array(150).fill('a');
+    const component = this;
+    const list = items.map(function(name, index){
+      return <DropDownMenu key={ index } value={component.state.value} onChange={component.handleChange}>
+      <MenuItem value={1} primaryText="Never" />
+      <MenuItem value={2} primaryText="Every Night" />
+      <MenuItem value={3} primaryText="Weeknights" />
+      <MenuItem value={4} primaryText="Weekends" />
+      <MenuItem value={5} primaryText="Weekly" />
+    </DropDownMenu>;
+    })
     return(
       <section
-        id="about__container"
+        id="menus__container"
         className={
           cx({
             'content':       true,
@@ -55,14 +70,11 @@ class About extends PureComponent {
             <div className="box">
               <Card>
                 <CardTitle
-                  title="About"
+                  title="Menus"
                   subtitle="View"
                 />
                 <CardText>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                 { list }
                 </CardText>
                 <CardActions>
                   <FlatButton
@@ -98,13 +110,13 @@ class About extends PureComponent {
   }
 }
 
-About.propTypes= {
+Menus.propTypes= {
 
 };
 
-About.contextTypes = {
+Menus.contextTypes = {
   // for manual routing
   router: React.PropTypes.object.isRequired
 };
 
-export default About;
+export default Menus;

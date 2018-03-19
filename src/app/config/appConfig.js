@@ -12,8 +12,8 @@ export const appConfig = {
 
   DRAWER: {
     menus: [
-      {id: 1, title: 'Home', routeName: '/'},
-      {id: 2, title: 'About', routeName: 'about'}
+      {id: 1, title: '150 paragraphs', routeName: '/'},
+      {id: 2, title: '150 dropdowns', routeName: 'menus'}
     ]
   }
 

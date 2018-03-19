@@ -10,7 +10,7 @@ import {
 import { App }                  from '../containers';
 import {
   Home,
-  About,
+  Menus,
   PageNotFound
 }                               from '../views';
 
@@ -18,7 +18,7 @@ const Routes = () => {
   return (
     <Switch path="/" component={App} >
       <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
+      <Route path="/menus" component={Menus} />
       <Route component={PageNotFound} />
     </Switch>
   );

@@ -43,6 +43,7 @@ class Home extends PureComponent {
 
   render() {
     const { animated, viewEnters } = this.state;
+    const names = Array(150).fill('a');
 
     return(
       <section
@@ -64,10 +65,9 @@ class Home extends PureComponent {
                   subtitle="View"
                 />
                 <CardText>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                  {names.map(function(name, index){
+                    return <p key={ index }>{index}</p>;
+                  })}
                 </CardText>
                 <CardActions>
                   <FlatButton
